@@ -15,9 +15,10 @@ interface Props {
   showBaseline: boolean;
   setShowBaseline: (v: boolean) => void;
   savedScenarios: {name: string, result: SimulationResult}[];
+  theme: 'light' | 'dark';
 }
 
-const AnalysisPivot: React.FC<Props> = ({ baselineResult, currentResult, activeResult, loading, showBaseline, setShowBaseline, savedScenarios }) => {
+const AnalysisPivot: React.FC<Props> = ({ baselineResult, currentResult, activeResult, loading, showBaseline, setShowBaseline, savedScenarios, theme }) => {
   return (
     <div className="grid gap-10">
       {/* Improvement #8: Interactive Chart Slab with Shadow Baseline Toggle */}
@@ -62,6 +63,7 @@ const AnalysisPivot: React.FC<Props> = ({ baselineResult, currentResult, activeR
                   current={currentResult} 
                   showBaseline={showBaseline} 
                   savedScenarios={savedScenarios}
+                  theme={theme}
                 />
               </motion.div>
             ) : null}

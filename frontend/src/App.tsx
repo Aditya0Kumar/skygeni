@@ -213,6 +213,7 @@ function App() {
             showBaseline={showBaseline}
             setShowBaseline={setShowBaseline}
             savedScenarios={savedScenarios}
+            theme={theme}
           />
 
           <ScenarioLeaderboard 

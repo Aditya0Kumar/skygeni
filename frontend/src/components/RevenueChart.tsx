@@ -30,24 +30,34 @@ interface Props {
   current: SimulationResult | null;
   showBaseline: boolean;
   savedScenarios?: { name: string, result: SimulationResult }[];
+  theme: 'light' | 'dark';
 }
 
-const RevenueChart: React.FC<Props> = ({ baseline, current, showBaseline, savedScenarios = [] }) => {
+const RevenueChart: React.FC<Props> = ({ baseline, current, showBaseline, savedScenarios = [], theme }) => {
   const chartRef = React.useRef<any>(null);
 
   const labels = Array.from({ length: 13 }, (_, i) => `W${i + 1}`);
 
-  const getVar = (name: string) => {
-    if (typeof window === 'undefined') return '#000000';
-    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-  };
+  const colors = {
+    light: {
+      textPrimary: '#0f172a',
+      textSecondary: '#475569',
+      textMuted: '#94a3b8',
+      borderSubtle: '#e2e8f0',
+      bgSurface: '#f8fafc',
+      accent: '#4f46e5'
+    },
+    dark: {
+      textPrimary: '#ffffff',
+      textSecondary: '#cbd5e1',
+      textMuted: '#94a3b8',
+      borderSubtle: '#1e293b',
+      bgSurface: '#0a0b10',
+      accent: '#6366f1'
+    }
+  }[theme];
 
-  const accentColor = getVar('--accent');
-  const textSecondary = getVar('--text-secondary');
-  const textMuted = getVar('--text-muted');
-  const borderSubtle = getVar('--border-subtle');
-  const bgSurface = getVar('--bg-surface');
-  const textPrimary = getVar('--text-primary');
+  const { accent: accentColor, textSecondary, textMuted, borderSubtle, bgSurface, textPrimary } = colors;
 
   const computeCumulative = (revenue: number[]): number[] => {
     let currentVal = 0;
