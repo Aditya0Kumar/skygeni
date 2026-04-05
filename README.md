@@ -4,14 +4,14 @@ SkyGeni is a high-fidelity, full-stack "What-If" simulation tool designed for sa
 
 ---
 
-## 📽️ Prototype Demonstration
+## Prototype Demonstration
 
 ### [Watch the Demo Video (Google Drive)](https://drive.google.com/file/d/1N5EDviwipeIvAkwKAIXEgd5xlmsI02-m/view?usp=drive_link)
 *(Total Duration: < 2 Minutes)*
 
 ---
 
-## 🖼️ Visual Gallery
+## Visual Gallery
 
 > [!NOTE]
 > All high-resolution screenshots are available in the [**`/assets`**](./assets) directory of this repository.
